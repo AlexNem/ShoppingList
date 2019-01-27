@@ -1,0 +1,7 @@
+package com.example.shoppinglist;
+
+import android.app.Application;
+
+public class MyApplication extends Application {
+
+}
