@@ -4,28 +4,22 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.example.shoppinglist.R;
-import com.example.shoppinglist.data.model.Item;
 import com.example.shoppinglist.data.model.ItemFragment;
-import com.example.shoppinglist.data.model.RecyclerViewAdapter;
-import com.example.shoppinglist.data.model.dummy.DummyContent;
+import com.example.shoppinglist.data.room.Item;
 import com.example.shoppinglist.ui.item_list.presenter.IView;
 import com.example.shoppinglist.ui.item_list.presenter.MainActivityPresenter;
 import com.hannesdorfmann.mosby3.mvp.MvpActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends MvpActivity<IView, MainActivityPresenter> implements
@@ -72,10 +66,17 @@ public class MainActivity extends MvpActivity<IView, MainActivityPresenter> impl
     }
 
     @Override
-    public void ItemClickListener(final Item item) {
+    public void ItemCheckListener(final Item item) {
         Log.d("TAG", "Checked item " + item.getId());
         Toast.makeText(this, "Checked item " + item.getId(), Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void ItemAddListener(Item item) {
+        Log.d("TAG", "Add item " + item.getId());
+        Toast.makeText(this, "Add item " + item.getId(), Toast.LENGTH_SHORT).show();
+    }
+
     private void initResources(){
         listener = this;
         recyclerView = findViewById(R.id.item_recycler);

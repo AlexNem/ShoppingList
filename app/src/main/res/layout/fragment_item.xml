@@ -4,10 +4,25 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <CheckBox
-        android:id="@+id/item_checkbox"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/item_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_add"/>
+
+    </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -29,6 +44,8 @@
             android:textAppearance="?attr/textAppearanceListItem" />
 
     </LinearLayout>
+
+
 
 
 </LinearLayout>
